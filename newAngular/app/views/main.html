@@ -1,0 +1,118 @@
+<div ng-controller="MainCtrl">
+
+    <body>
+        <div class="fixed-row">
+            <p>
+                <h3>Success! Your deal is available on your ExtraCare card.</h3></p>
+            <br>
+            <h4>Redeeming is easy. Just present your ExtraCare card to the associate when you check out.</h4>
+
+            <div sticky class="jumbotron pull-right col-md-4">
+                <p class="circle centered">
+                    <br><a class="centered">{{counter}}</a></p>
+                <p>
+                    <h2>Deals Sent To Card</h2></p>
+
+                <br>
+                <h4> That's over</h4>
+                <h1>${{total}}</h1>
+                <h4> in savings!</h4>
+                <br>
+                <h6>Would you like to print these sickening deals?</h6>
+                <button type="submit" class="btn-success">Print</button>
+                <br>
+                <footer>
+                    <br>See a full list of Savings at
+                    <br>
+                    <a href="www.cvs.com">My Savings & Rewards ></a>
+                </footer>
+                </li>
+            </div>
+
+            <div class="col-md-8 centered">
+                <br>
+                <br>
+                <br>
+                <div class="panel col-md-2">
+                </div>
+                <div class="panel panel-default col-md-4">
+                    <div class="panel-body">
+                        <div class="pull-right span 4 offset4">
+                            <button>
+                                <img height="80" width="80" src="{{coupons[0].image}}" data-ng-click="toggleImage(coupon); counterPlusOne(coupon); printIcon(coupon)" /></button>
+                        </div>
+                        <p class="text-left">
+                            <h4>{{coupons[0].title}} </h4> You want to buy this
+                            <br> {{coupons[0].expiry}}
+                            <br>
+                            <div>
+                                <br>
+                                <p height="10" width="10" <li>
+                                    <a ng-href="#/about" class="glyphicon glyphicon-print"></a>
+                                    </li>
+                            </div>
+                            </p>
+                    </div>
+                </div>
+                <div class="panel  col-md-4">
+                </div>
+            </div>
+        </div>
+
+        <div class="row-marketing row">
+
+
+            <p>
+                <h3>Other rewards and coupons available to add to your card.</h3></p>
+
+            <div class="col-md-8">
+                <div class="panel panel-default col-md-6" ng-repeat="coupon in coupons">
+                    <div class="panel-body centered">
+                        <div class="pull-right">
+                            <button>
+                                <img height="80" width="80" src="{{coupon.image}}" data-ng-click="toggleImage(coupon); counterPlusOne(coupon); calculatetotal(coupon); printIcon(coupon);" /></button>
+                        </div>
+                        <p class=" text-left ">
+                            <h4>{{coupon.title}} </h4> You want to buy this
+                            <br> {{coupon.expiry}}
+                            <br>
+                            <div>
+                                <br>
+                                <p height="10" width="10" <li>
+                                    <a ng-href="#/about" class={{icon}}></a>
+                                    </li>
+                            </div>
+                            </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- build:js(.) scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-touch/angular-touch.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/ngSticky/lib/sticky.js"></script>
+
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/contact.js"></script>
+        <!-- endbuild -->
+
+    </body>
+    <footer>
+        <h5>*Terms and Conditions Apply, max 4 coupons sent to card per customer.</h5>
+    </footer>
